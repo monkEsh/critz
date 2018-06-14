@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "snippets/head.html" %}
+
+  <body id="page-top">
+    {% include "snippets/navbar.html" %}
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1>Welcome to Crit<b>Z</b></h1>
+        <p class="lead">A movie review site</p>
+
+          <div class="form-group">
+            <input id="movieSearch" type="search" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter movie name">
+            <small id="searchMovie" class="form-text .text-primary">Enter movie name and get reviews and post reviews.</small>
+          </div>
+          <button id="search" class="btn btn-info" onclick="search_movie();">Search Movie</button>
+
+      </div>
+    </header>
+
+    <section >
+      <div class="container">
+        <div class="row" id="bmovies">
+
+        </div>
+      </div>
+    </section>
+    {% include "snippets/footer.html" %}
+  </body>
+<script>
+    $(document).ready(function(){
+        get_movies()
+    });
+    console.log("{{admin}}");
+</script>
+</html>

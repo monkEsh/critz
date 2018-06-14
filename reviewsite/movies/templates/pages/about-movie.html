@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "snippets/head.html" %}
+
+  <body id="page-top">
+    {% include "snippets/navbar.html" %}
+    <header class="bg-primary text-white">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 text-center">
+          <div id="movie-img">
+            <img class="img-responsive" src="/static/img/default-movie.jpg" height="60"  width="80" alt="About Movie name">
+          </div>
+          <div id="movie-title">
+
+          </div>
+        </div>
+        <div class="col-md-6  text-white">
+            <div class="row">
+                <div class="col-md-2"><i class="fa fa-cloud"></i> Movie Trailer Link</div>
+                <div class="col-md-5" id="movie-trailer"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><i class="fa fa-star"></i> Ratings </div>
+                <div class="col-md-5" id="movie-rating"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><i class="fa fa-table"></i> Release Date </div>
+                <div class="col-md-5" id="movie-rel"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><i class="fa fa-book"></i> Movie Summary </div>
+                <div class="col-md-5" id="movie-summary"></div>
+            </div>
+
+        </div>
+      </div>
+    </header>
+
+    <main role="main" class="container">
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Reviews</h6>
+        <div id="reviews_comment">
+
+        </div>
+
+            <tr>
+                <td>
+                    <input type="text" name="title" class="form-control" placeholder="Review in short" required id="id_title" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" name="rating" class="form-control" placeholder="Rating" required id="id_rating" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="review" class="form-control" placeholder="Review" id="id_review"></textarea>
+                </td>
+            </tr>
+
+
+          <button class="btn btn-lg btn-primary btn-block" onclick="add_comment('{{id}}')">Submit Review</button>
+
+
+      </div>
+
+
+    </main>
+    {% include "snippets/footer.html" %}
+
+  </body>
+<script>
+  $(document).ready(function(){
+        get_movie_by_id("{{id}}");
+    });
+</script>
+</html>
